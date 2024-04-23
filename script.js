@@ -6,17 +6,30 @@
 let myImgs = document.getElementsByClassName(`img-w`)
 
 let imgVisualizzata
+let nextImg
 
-for(let i = 0; i < myImgs.length; i++){
-    const immagine = myImgs[i]
-    if(immagine.classList.contains(`show`)){
-        immagine.classList.remove(`show`);
 
-        imgVisualizzata = i;
+document.getElementById(`btn-down`).addEventListener(`click`, function(){
+    for(let i = 0; i < myImgs.length; i++){
+        const immagine = myImgs[i]
+        if(immagine.classList.contains(`show`)){
+            immagine.classList.remove(`show`);
+
+            imgVisualizzata = i;
+        }
     }
-}
 
-myImgs[imgVisualizzata+1].classList.add(`show`)
+    nextImg = imgVisualizzata + 1;
+
+    if( nextImg >= myImgs.length){
+        nextImg = 0
+    }
+
+    myImgs[nextImg].classList.add(`show`)   
+})
+
+   
+
 
 
 
