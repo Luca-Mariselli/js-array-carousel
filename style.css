@@ -4,7 +4,48 @@
     padding: 0;
 }
 
-.container{
-    height: 100wh;
+.my-container{
+    height: 100vh;
     background-color: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+.img-cont{
+    height: 300px;
+    width: 800px;
+    position: relative;
+
+}
+
+.img-w{
+    display: none;
+    object-fit: cover;
+    width: 100%; 
+    height: 100%;
+}
+
+.show{
+    display: block;
+}
+
+.my-fixed-top{
+    position: absolute;
+    top: 0;
+    left: calc(50% - 12px);
+}
+
+.my-fixed-bot{
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 12px);
+}
+
+.my-arrows{
+    border-radius: 50%;
+    padding: 5px;
+    background-color: lightgray;
+}
+
