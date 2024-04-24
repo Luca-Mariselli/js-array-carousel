@@ -5,31 +5,37 @@
 
 let myImgs = document.getElementsByClassName(`img-w`)
 
-let imgVisualizzata
+let imgVisualizzata = 0
+let ultimaImg = myImgs.length - 1
 let nextImg
 
 
-document.getElementById(`btn-down`).addEventListener(`click`, function(){
-    for(let i = 0; i < myImgs.length; i++){
-        const immagine = myImgs[i]
-        if(immagine.classList.contains(`show`)){
-            immagine.classList.remove(`show`);
-
-            imgVisualizzata = i;
-        }
-    }
-
-    nextImg = imgVisualizzata + 1;
-
-    if( nextImg >= myImgs.length){
-        nextImg = 0
-    }
-
-    myImgs[nextImg].classList.add(`show`)   
-})
-
    
 
+
+document.getElementById(`btn-down`).addEventListener(`click`, function(){
+    myImgs[imgVisualizzata].classList.remove(`show`)
+    if(imgVisualizzata < myImgs.length - 1){
+        imgVisualizzata++
+    } else{
+        imgVisualizzata = 0
+    }
+    myImgs[imgVisualizzata].classList.add(`show`)
+})
+
+document.getElementById(`btn-up`).addEventListener(`click`, function(){
+    myImgs[imgVisualizzata].classList.remove(`show`)
+
+    if(imgVisualizzata == 0){
+        console.log(`sei sulla 0`)
+        imgVisualizzata = ultimaImg
+    }else{
+        console.log(`non sei sulla 0`)
+        imgVisualizzata--
+    }
+    myImgs[imgVisualizzata].classList.add(`show`)
+
+})
 
 
 
